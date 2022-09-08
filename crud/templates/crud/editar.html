@@ -1,0 +1,36 @@
+{% extends 'crud/layout.html' %}
+
+
+{% block content %}
+
+  
+
+		<table class="table table-striped text-center">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Modelo</th>
+      <th scope="col">Acción</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for vehiculo in listaVehiculos %}
+    <tr>
+      <th scope="row">{{ vehiculo.id }}</th>
+      <td>{{ vehiculo.tipo }}</td>
+      <td>{{ vehiculo.marca }}</td>
+      <td>{{ vehiculo.modelo }}</td>
+      <td>
+
+        <a class="btn btn-warning btn-sm" href="#" role="button">Editar</a>
+        <a class="btn btn-danger btn-sm" href="{% url 'eliminar' vehiculo.id %}" role="button">Eliminar</a>
+
+     </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

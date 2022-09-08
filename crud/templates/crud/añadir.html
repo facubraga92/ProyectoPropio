@@ -1,0 +1,47 @@
+{% extends 'crud/layout.html' %}
+
+
+{% block content %}
+<form method="post">
+	{% csrf_token %}
+
+<div class="container">
+  <div class="row row-cols-4">
+    <div class="col">
+    	<select class="form-control" name="Tipo" id="exampleFormControlSelect1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+
+    <div class="col"> 
+    	<input type="text" name="Marca" class="form-control" placeholder="Marca">
+    </div>
+    <div class="col">
+    	<input type="text" name="Modelo" class="form-control" placeholder="Modelo">
+</div>
+    <div class="col">
+<button class="btn btn-success" type="submit">Añadir</button>
+</div>
+  </div>
+</div>
+
+</form>
+
+
+{% endblock %}
+
+
+ 
+
+  
+
+
+
+
+
+
+
