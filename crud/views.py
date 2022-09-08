@@ -3,14 +3,16 @@ from django.http import HttpResponse
 from .models import Vehiculos
 # Create your views here.
 
-listaVehiculos = Vehiculos.objects.all()
+
 
 def inicio(request):
+	listaVehiculos = Vehiculos.objects.all()
 	context = {'listaVehiculos' : listaVehiculos}
 
 	return render(request, 'crud/inicio.html', context);
 
 def editar(request):
+	listaVehiculos = Vehiculos.objects.all()
 	context = {'listaVehiculos': listaVehiculos}
 	return render(request, 'crud/editar.html',context);
 
@@ -23,8 +25,12 @@ def añadir(request):
 
 
 def eliminar(request,vehiculo_id):
+	listaVehiculos = Vehiculos.objects.all()
 	vehiculoAEliminar = listaVehiculos.filter(id=vehiculo_id)
 	vehiculoAEliminar.delete()
-	return redirect('inicio');
+	listaVehiculos = Vehiculos.objects.all()
+	context = {'listaVehiculos': Vehiculos.objects.all()}
+
+	return render(request, 'crud/editar.html', context);
 
 
