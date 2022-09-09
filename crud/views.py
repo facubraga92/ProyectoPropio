@@ -1,6 +1,8 @@
 from django.shortcuts import render , redirect
 from django.http import HttpResponse , HttpResponseRedirect
 from django.urls import reverse
+
+from .constants import ARRAY_TIPO
 from .models import Vehiculos
 
 # Create your views here.
@@ -89,7 +91,11 @@ def añadir(request):
 		vehiculoNuevo.save()
 		return inicio(request)
 	if request.method == "GET":
-		return render(request, 'crud/añadir.html')
+		context = {
+
+			"ARRAY_TIPO": ARRAY_TIPO
+		}
+		return render(request, 'crud/añadir.html', context)
 
 
 #########################################################################################

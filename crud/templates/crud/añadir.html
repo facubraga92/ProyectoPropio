@@ -9,10 +9,15 @@
   <div class="row row-cols-4">
     <div class="col">
     	<select class="form-control" name="Tipo" id="exampleFormControlSelect1">
-      <option>Motocicleta</option>
-      <option>Automovil</option>
-      <option>Monopatin</option> 
-    </select>
+          <option>Motocicleta</option>
+          <option>Automovil</option>
+          <option>Monopatin</option>
+        </select>
+        <select class="form-control" name="Tipo" id="exampleFormControlSelect1">
+             {% for tipo in ARRAY_TIPO %}
+                 <option>{{ tipo.0 }}</option>
+            {% endfor %}
+        </select>
   </div>
 
     <div class="col"> 
