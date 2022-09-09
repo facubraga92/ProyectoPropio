@@ -4,16 +4,14 @@
 {% block content %}
 <form method="post">
 	{% csrf_token %}
-
+<!-- La idea aca en este menu desplegable era que aparezcan los choices que estan definidos en ARRAY_TIPO en models.py -->
 <div class="container">
   <div class="row row-cols-4">
     <div class="col">
     	<select class="form-control" name="Tipo" id="exampleFormControlSelect1">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
+      <option>Motocicleta</option>
+      <option>Automovil</option>
+      <option>Monopatin</option> 
     </select>
   </div>
 
@@ -24,11 +22,20 @@
     	<input type="text" name="Modelo" class="form-control" placeholder="Modelo">
 </div>
     <div class="col">
-<button class="btn btn-success" type="submit">Añadir</button>
+        <a class="btn btn-warning btn-sm" href="{% url 'añadir_form' %}" role="button">Añadir</a>
 </div>
   </div>
 </div>
 
+</form>
+
+<form action="{% url 'añadir' %}" method="post">
+    	{% csrf_token %}
+    <label for="your_name">Your name: </label>
+    <input id="Tipo" type="text" name="Tipo" value="Automovil"><label for="your_name">Your name: </label>
+    <input id="Marca" type="text" name="Marca" value="asd"><label for="your_name">Your name: </label>
+    <input id="Modelo" type="text" name="Modelo" value="123">
+    <input type="submit" value="OK">
 </form>
 
 
